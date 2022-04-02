@@ -7,13 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
-    void shouldReturnWhenSetCurrentStationNumberTo10() {
-        Radio radio = new Radio();
-        radio.setCurrentStationNumber(5);
+    void shouldReturnWhenSetCurrentStationNumberToMaxNumber() {
+        Radio radio = new Radio(10);
+        radio.setCurrentStationNumber(16);
 
-        radio.setCurrentStationNumber(10);
-
-        int expected = 5;
+        int expected = 0;
         int actual = radio.getCurrentStationNumber();
 
         assertEquals(expected, actual);
@@ -60,7 +58,7 @@ class RadioTest {
     }
 
     @Test
-    void shouldSet0ToStationNumberWhenPressNext() {
+    void shouldSetMaxToStationNumberWhenPressNext() {
         Radio radio = new Radio(15);
         radio.setCurrentStationNumber(14);
 
@@ -74,7 +72,7 @@ class RadioTest {
 
 
     @Test
-    void shouldSet9ToStationNumberWhenPressPrev() {
+    void shouldSet0ToStationNumberWhenPressPrev() {
         Radio radio = new Radio(15);
         radio.setCurrentStationNumber(0);
 
@@ -82,6 +80,19 @@ class RadioTest {
 
         int expected = 15;
         int actual = radio.getMaxStationNumber();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSet15ToStationNumberWhenPressPrev() {
+        Radio radio = new Radio(15);
+        radio.setCurrentStationNumber(15);
+
+        radio.prev();
+
+        int expected = 14;
+        int actual = radio.getCurrentStationNumber();
 
         assertEquals(expected, actual);
     }

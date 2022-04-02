@@ -7,7 +7,6 @@ public class Radio {
     private int maxVolume = 100;
     private int currentStationNumber = 0;
     private int currentVolume = 0;
-    private boolean on;
 
     public Radio() {
 
@@ -30,7 +29,7 @@ public class Radio {
     }
 
     public void setCurrentStationNumber(int NewCurrentStationNumber) {
-        if (NewCurrentStationNumber > (maxStationNumber - 1)) {
+        if (NewCurrentStationNumber > (maxStationNumber)) {
             return;
         }
         if (NewCurrentStationNumber < 0) {
@@ -49,7 +48,7 @@ public class Radio {
 
     public void prev() {
         if (currentStationNumber == maxStationNumber) {
-            setCurrentStationNumber(maxStationNumber);
+            setCurrentStationNumber(maxStationNumber - 1);
         } else {
             setCurrentStationNumber(currentStationNumber - 1);
         }
