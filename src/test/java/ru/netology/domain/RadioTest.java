@@ -61,8 +61,8 @@ class RadioTest {
 
     @Test
     void shouldSet0ToStationNumberWhenPressNext() {
-        Radio radio = new Radio();
-        radio.setCurrentStationNumber(9);
+        Radio radio = new Radio(15);
+        radio.setCurrentStationNumber(14);
 
         radio.next();
 
@@ -75,13 +75,13 @@ class RadioTest {
 
     @Test
     void shouldSet9ToStationNumberWhenPressPrev() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(15);
         radio.setCurrentStationNumber(0);
 
         radio.prev();
 
-        int expected = 9;
-        int actual = radio.getCurrentStationNumber();
+        int expected = 15;
+        int actual = radio.getMaxStationNumber();
 
         assertEquals(expected, actual);
     }
@@ -91,7 +91,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(5);
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
 
         int expected = 5;
         int actual = radio.getCurrentVolume();
@@ -128,11 +128,11 @@ class RadioTest {
     @Test
     void shouldReturnWhenCurrentVolumeEquals10() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
 
         radio.volumeUp();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);

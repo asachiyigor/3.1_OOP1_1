@@ -2,8 +2,24 @@ package ru.netology.domain;
 
 public class Radio {
 
+    private int maxStationNumber = 10;
+    private int minVolume = 0;
+    private int maxVolume = 100;
     private int currentStationNumber = 0;
     private int currentVolume = 0;
+    private boolean on;
+
+    public Radio() {
+
+    }
+
+    public Radio(int maxStationNumber) {
+        this.maxStationNumber = maxStationNumber;
+    }
+
+    public int getMaxStationNumber() {
+        return maxStationNumber;
+    }
 
     public int getCurrentStationNumber() {
         return currentStationNumber;
@@ -14,7 +30,7 @@ public class Radio {
     }
 
     public void setCurrentStationNumber(int NewCurrentStationNumber) {
-        if (NewCurrentStationNumber > 9) {
+        if (NewCurrentStationNumber > (maxStationNumber - 1)) {
             return;
         }
         if (NewCurrentStationNumber < 0) {
@@ -24,7 +40,7 @@ public class Radio {
     }
 
     public void next() {
-        if (currentStationNumber == 9) {
+        if (currentStationNumber == (maxStationNumber - 1)) {
             setCurrentStationNumber(0);
         } else {
             setCurrentStationNumber(currentStationNumber + 1);
@@ -32,25 +48,25 @@ public class Radio {
     }
 
     public void prev() {
-        if (currentStationNumber == 0) {
-            setCurrentStationNumber(9);
+        if (currentStationNumber == maxStationNumber) {
+            setCurrentStationNumber(maxStationNumber);
         } else {
             setCurrentStationNumber(currentStationNumber - 1);
         }
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 10) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
         this.currentVolume = newCurrentVolume;
     }
 
     public void volumeUp() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             this.currentVolume = currentVolume + 1;
         }
     }
