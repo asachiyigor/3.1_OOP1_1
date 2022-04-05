@@ -28,10 +28,10 @@ public class Radio {
         return this.currentVolume;
     }
 
-    public void setCurrentStationNumber(int NewCurrentStationNumber) {
-        if (NewCurrentStationNumber <= this.maxStationNumber) {
-            if (NewCurrentStationNumber >= 0) {
-                this.currentStationNumber = NewCurrentStationNumber;
+    public void setCurrentStationNumber(int newCurrentStationNumber) {
+        if (newCurrentStationNumber <= this.maxStationNumber) {
+            if (newCurrentStationNumber >= 0) {
+                this.currentStationNumber = newCurrentStationNumber;
             }
         }
     }
