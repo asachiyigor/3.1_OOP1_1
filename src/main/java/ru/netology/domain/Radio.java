@@ -24,18 +24,6 @@ public class Radio {
         this.maxStationNumber = maxStationNumber;
     }
 
-    public int getMaxStationNumber() {
-        return this.maxStationNumber;
-    }
-
-    public int getCurrentStationNumber() {
-        return this.currentStationNumber;
-    }
-
-    public int getCurrentVolume() {
-        return this.currentVolume;
-    }
-
     public void setCurrentStationNumber(int newCurrentStationNumber) {
         if (newCurrentStationNumber <= this.maxStationNumber) {
             if (newCurrentStationNumber >= 0) {
